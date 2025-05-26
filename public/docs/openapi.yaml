@@ -1,0 +1,2134 @@
+openapi: 3.0.3
+info:
+  title: 'Your App API Documentation'
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://shofy.test'
+tags:
+  -
+    name: Address
+    description: ''
+  -
+    name: Authentication
+    description: ''
+  -
+    name: Blog
+    description: ''
+  -
+    name: Brands
+    description: ''
+  -
+    name: Cart
+    description: ''
+  -
+    name: Endpoints
+    description: ''
+  -
+    name: Orders
+    description: ''
+  -
+    name: 'Product Categories'
+    description: ''
+  -
+    name: Products
+    description: ''
+  -
+    name: Profile
+    description: ''
+paths:
+  /api/v1/ecommerce/addresses:
+    get:
+      summary: 'Get list of address by customer'
+      operationId: getListOfAddressByCustomer
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/v1/ecommerce/addresses could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/v1/ecommerce/addresses could not be found.'
+      tags:
+        - Address
+      security: []
+    post:
+      summary: 'Create new address for customer'
+      operationId: createNewAddressForCustomer
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: false
+                  data:
+                    id: 1
+                    name: 'John Doe'
+                    phone: '0123456789'
+                    email: john.doe@example.com
+                    country: 'United States'
+                    state: California
+                    city: 'Los Angeles'
+                    address: '123 Main St'
+                    zip_code: '90001'
+                    is_default: true
+                  message: null
+                properties:
+                  error:
+                    type: boolean
+                    example: false
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: 'John Doe'
+                      phone:
+                        type: string
+                        example: '0123456789'
+                      email:
+                        type: string
+                        example: john.doe@example.com
+                      country:
+                        type: string
+                        example: 'United States'
+                      state:
+                        type: string
+                        example: California
+                      city:
+                        type: string
+                        example: 'Los Angeles'
+                      address:
+                        type: string
+                        example: '123 Main St'
+                      zip_code:
+                        type: string
+                        example: '90001'
+                      is_default:
+                        type: boolean
+                        example: true
+                  message:
+                    type: string
+                    example: null
+      tags:
+        - Address
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of the address owner.'
+                  example: 'John Doe'
+                  nullable: false
+                email:
+                  type: string
+                  description: 'The email address.'
+                  example: john.doe@example.com
+                  nullable: true
+                phone:
+                  type: string
+                  description: 'The phone number.'
+                  example: '0123456789'
+                  nullable: false
+                country:
+                  type: string
+                  description: 'The country name or country code.'
+                  example: 'United States or US'
+                  nullable: true
+                state:
+                  type: string
+                  description: 'The state/province name.'
+                  example: California
+                  nullable: true
+                city:
+                  type: string
+                  description: 'The city name.'
+                  example: 'Los Angeles'
+                  nullable: true
+                address:
+                  type: string
+                  description: 'The street address.'
+                  example: '123 Main St'
+                  nullable: true
+                is_default:
+                  type: boolean
+                  description: 'Set as default address.'
+                  example: true
+                  nullable: true
+                zip_code:
+                  type: string
+                  description: 'The postal/zip code.'
+                  example: '90001'
+                  nullable: true
+              required:
+                - name
+                - email
+                - phone
+  '/api/v1/ecommerce/addresses/{id}':
+    put:
+      summary: 'Update an address'
+      operationId: updateAnAddress
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: false
+                  data:
+                    id: 1
+                    name: 'John Doe'
+                    phone: '0123456789'
+                    email: john.doe@example.com
+                    country: 'United States'
+                    state: California
+                    city: 'Los Angeles'
+                    address: '123 Main St'
+                    zip_code: '90001'
+                    is_default: true
+                  message: null
+                properties:
+                  error:
+                    type: boolean
+                    example: false
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: 'John Doe'
+                      phone:
+                        type: string
+                        example: '0123456789'
+                      email:
+                        type: string
+                        example: john.doe@example.com
+                      country:
+                        type: string
+                        example: 'United States'
+                      state:
+                        type: string
+                        example: California
+                      city:
+                        type: string
+                        example: 'Los Angeles'
+                      address:
+                        type: string
+                        example: '123 Main St'
+                      zip_code:
+                        type: string
+                        example: '90001'
+                      is_default:
+                        type: boolean
+                        example: true
+                  message:
+                    type: string
+                    example: null
+      tags:
+        - Address
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of the address owner.'
+                  example: 'John Doe'
+                  nullable: false
+                email:
+                  type: string
+                  description: 'The email address.'
+                  example: john.doe@example.com
+                  nullable: false
+                phone:
+                  type: string
+                  description: 'The phone number.'
+                  example: '0123456789'
+                  nullable: false
+                country:
+                  type: string
+                  description: 'The country name or country code.'
+                  example: 'United States or US'
+                  nullable: false
+                state:
+                  type: string
+                  description: 'The state/province name.'
+                  example: California
+                  nullable: false
+                city:
+                  type: string
+                  description: 'The city name.'
+                  example: 'Los Angeles'
+                  nullable: false
+                address:
+                  type: string
+                  description: 'The street address.'
+                  example: '123 Main St'
+                  nullable: false
+                is_default:
+                  type: boolean
+                  description: 'Set as default address.'
+                  example: true
+                  nullable: false
+                zip_code:
+                  type: string
+                  description: 'The postal/zip code.'
+                  example: '90001'
+                  nullable: true
+              required:
+                - name
+                - email
+                - phone
+                - state
+                - city
+                - address
+    delete:
+      summary: 'Delete an address'
+      operationId: deleteAnAddress
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: false
+                  data: null
+                  message: 'Address deleted successfully'
+                properties:
+                  error:
+                    type: boolean
+                    example: false
+                  data:
+                    type: string
+                    example: null
+                  message:
+                    type: string
+                    example: 'Address deleted successfully'
+      tags:
+        - Address
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the address.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/ecommerce/countries:
+    get:
+      summary: 'Get list of available countries'
+      operationId: getListOfAvailableCountries
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: false
+                  data:
+                    -
+                      name: Vietnam
+                      code: VN
+                  message: null
+                properties:
+                  error:
+                    type: boolean
+                    example: false
+                  data:
+                    type: array
+                    example:
+                      -
+                        name: Vietnam
+                        code: VN
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          example: Vietnam
+                        code:
+                          type: string
+                          example: VN
+                  message:
+                    type: string
+                    example: null
+      tags:
+        - Address
+      security: []
+  /api/v1/register:
+    post:
+      summary: Register
+      operationId: register
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: false
+                  data: null
+                  message: 'Registered successfully! We emailed you to verify your account!'
+                properties:
+                  error:
+                    type: boolean
+                    example: false
+                  data:
+                    type: string
+                    example: null
+                  message:
+                    type: string
+                    example: 'Registered successfully! We emailed you to verify your account!'
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The given data was invalid.'
+                  errors:
+                    name:
+                      - 'The name field is required.'
+                    email:
+                      - 'The email field is required.'
+                    password:
+                      - 'The password field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The given data was invalid.'
+                  errors:
+                    type: object
+                    properties:
+                      name:
+                        type: array
+                        example:
+                          - 'The name field is required.'
+                        items:
+                          type: string
+                      email:
+                        type: array
+                        example:
+                          - 'The email field is required.'
+                        items:
+                          type: string
+                      password:
+                        type: array
+                        example:
+                          - 'The password field is required.'
+                        items:
+                          type: string
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: 'This field is required when <code>name</code> is not present. Must not be greater than 120 characters. Must be at least 2 characters.'
+                  example: 'e.g: John'
+                  nullable: true
+                last_name:
+                  type: string
+                  description: 'This field is required when <code>name</code> is not present. Must not be greater than 120 characters. Must be at least 2 characters.'
+                  example: 'e.g: Smith'
+                  nullable: true
+                name:
+                  type: string
+                  description: 'The name of the user.'
+                  example: consequatur
+                  nullable: true
+                email:
+                  type: string
+                  description: 'The email of the user.'
+                  example: qkunze@example.com
+                  nullable: false
+                password:
+                  type: string
+                  description: 'The password of user to create.'
+                  example: 'O[2UZ5ij-e/dl4m{o,'
+                  nullable: false
+                phone:
+                  type: string
+                  description: 'The phone of the user.'
+                  example: consequatur
+                  nullable: true
+                password_confirmation:
+                  type: string
+                  description: 'The password confirmation.'
+                  example: consequatur
+                  nullable: false
+              required:
+                - name
+                - email
+                - password
+                - phone
+                - password_confirmation
+      security: []
+  /api/v1/login:
+    post:
+      summary: Login
+      operationId: login
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: false
+                  data:
+                    token: 1|aF5s7p3xxx1lVL8hkSrPN72m4wPVpTvTs...
+                  message: null
+                properties:
+                  error:
+                    type: boolean
+                    example: false
+                  data:
+                    type: object
+                    properties:
+                      token:
+                        type: string
+                        example: 1|aF5s7p3xxx1lVL8hkSrPN72m4wPVpTvTs...
+                  message:
+                    type: string
+                    example: null
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'The email of the user.'
+                  example: qkunze@example.com
+                  nullable: false
+                password:
+                  type: string
+                  description: 'The password of user to create.'
+                  example: 'O[2UZ5ij-e/dl4m{o,'
+                  nullable: false
+              required:
+                - email
+                - password
+      security: []
+  /api/v1/email/check:
+    post:
+      summary: 'Check email existing or not'
+      operationId: checkEmailExistingOrNot
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: false
+                  data:
+                    exists: true
+                  message: null
+                properties:
+                  error:
+                    type: boolean
+                    example: false
+                  data:
+                    type: object
+                    properties:
+                      exists:
+                        type: boolean
+                        example: true
+                  message:
+                    type: string
+                    example: null
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'The email of the user.'
+                  example: qkunze@example.com
+                  nullable: false
+              required:
+                - email
+      security: []
+  /api/v1/password/forgot:
+    post:
+      summary: 'Forgot password'
+      operationId: forgotPassword
+      description: 'Send a reset link to the given user.'
+      parameters: []
+      responses: {  }
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'The email of the user.'
+                  example: qkunze@example.com
+                  nullable: false
+              required:
+                - email
+      security: []
+  /api/v1/resend-verify-account-email:
+    post:
+      summary: 'Resend email verification'
+      operationId: resendEmailVerification
+      description: 'Resend the email verification notification.'
+      parameters: []
+      responses: {  }
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'The email of the user.'
+                  example: qkunze@example.com
+                  nullable: false
+              required:
+                - email
+      security: []
+  /api/v1/logout:
+    get:
+      summary: Logout
+      operationId: logout
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/v1/logout could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/v1/logout could not be found.'
+      tags:
+        - Authentication
+  /api/v1/search:
+    get:
+      summary: 'Search post'
+      operationId: searchPost
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/v1/search could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/v1/search could not be found.'
+      tags:
+        - Blog
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                q:
+                  type: string
+                  description: 'The search keyword.'
+                  example: consequatur
+                  nullable: false
+              required:
+                - q
+      security: []
+  /api/v1/posts:
+    get:
+      summary: 'List posts'
+      operationId: listPosts
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/v1/posts could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/v1/posts could not be found.'
+      tags:
+        - Blog
+      security: []
+  /api/v1/categories:
+    get:
+      summary: 'List categories'
+      operationId: listCategories
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/v1/categories could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/v1/categories could not be found.'
+      tags:
+        - Blog
+      security: []
+  /api/v1/tags:
+    get:
+      summary: 'List tags'
+      operationId: listTags
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/v1/tags could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/v1/tags could not be found.'
+      tags:
+        - Blog
+      security: []
+  /api/v1/posts/filters:
+    get:
+      summary: 'Filters posts'
+      operationId: filtersPosts
+      description: ''
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'Current page of the collection. Default: 1'
+          example: 17
+          required: false
+          schema:
+            type: integer
+            description: 'Current page of the collection. Default: 1'
+            example: 17
+            nullable: false
+        -
+          in: query
+          name: per_page
+          description: 'Maximum number of items to be returned in result set.Default: 10'
+          example: 17
+          required: false
+          schema:
+            type: integer
+            description: 'Maximum number of items to be returned in result set.Default: 10'
+            example: 17
+            nullable: false
+        -
+          in: query
+          name: search
+          description: 'Limit results to those matching a string.'
+          example: consequatur
+          required: false
+          schema:
+            type: string
+            description: 'Limit results to those matching a string.'
+            example: consequatur
+            nullable: false
+        -
+          in: query
+          name: after
+          description: 'Limit response to posts published after a given ISO8601 compliant date.'
+          example: consequatur
+          required: false
+          schema:
+            type: string
+            description: 'Limit response to posts published after a given ISO8601 compliant date.'
+            example: consequatur
+            nullable: false
+        -
+          in: query
+          name: author
+          description: 'Limit result set to posts assigned to specific authors.'
+          example: consequatur
+          required: false
+          schema:
+            type: string
+            description: 'Limit result set to posts assigned to specific authors.'
+            example: consequatur
+            nullable: false
+        -
+          in: query
+          name: author_exclude
+          description: 'Ensure result set excludes posts assigned to specific authors.'
+          example: consequatur
+          required: false
+          schema:
+            type: string
+            description: 'Ensure result set excludes posts assigned to specific authors.'
+            example: consequatur
+            nullable: false
+        -
+          in: query
+          name: before
+          description: 'Limit response to posts published before a given ISO8601 compliant date.'
+          example: consequatur
+          required: false
+          schema:
+            type: string
+            description: 'Limit response to posts published before a given ISO8601 compliant date.'
+            example: consequatur
+            nullable: false
+        -
+          in: query
+          name: exclude
+          description: 'Ensure result set excludes specific IDs.'
+          example: consequatur
+          required: false
+          schema:
+            type: string
+            description: 'Ensure result set excludes specific IDs.'
+            example: consequatur
+            nullable: false
+        -
+          in: query
+          name: include
+          description: 'Limit result set to specific IDs.'
+          example: consequatur
+          required: false
+          schema:
+            type: string
+            description: 'Limit result set to specific IDs.'
+            example: consequatur
+            nullable: false
+        -
+          in: query
+          name: order
+          description: 'Order sort attribute ascending or descending. Default: desc .One of: asc, desc'
+          example: consequatur
+          required: false
+          schema:
+            type: string
+            description: 'Order sort attribute ascending or descending. Default: desc .One of: asc, desc'
+            example: consequatur
+            nullable: false
+        -
+          in: query
+          name: order_by
+          description: 'Sort collection by object attribute. Default: updated_at. One of: author, created_at, updated_at, id,  slug, title'
+          example: consequatur
+          required: false
+          schema:
+            type: string
+            description: 'Sort collection by object attribute. Default: updated_at. One of: author, created_at, updated_at, id,  slug, title'
+            example: consequatur
+            nullable: false
+        -
+          in: query
+          name: categories
+          description: 'Limit result set to all items that have the specified term assigned in the categories taxonomy.'
+          example: consequatur
+          required: false
+          schema:
+            type: string
+            description: 'Limit result set to all items that have the specified term assigned in the categories taxonomy.'
+            example: consequatur
+            nullable: false
+        -
+          in: query
+          name: categories_exclude
+          description: 'Limit result set to all items except those that have the specified term assigned in the categories taxonomy.'
+          example: consequatur
+          required: false
+          schema:
+            type: string
+            description: 'Limit result set to all items except those that have the specified term assigned in the categories taxonomy.'
+            example: consequatur
+            nullable: false
+        -
+          in: query
+          name: tags
+          description: 'Limit result set to all items that have the specified term assigned in the tags taxonomy.'
+          example: consequatur
+          required: false
+          schema:
+            type: string
+            description: 'Limit result set to all items that have the specified term assigned in the tags taxonomy.'
+            example: consequatur
+            nullable: false
+        -
+          in: query
+          name: tags_exclude
+          description: 'Limit result set to all items except those that have the specified term assigned in the tags taxonomy.'
+          example: consequatur
+          required: false
+          schema:
+            type: string
+            description: 'Limit result set to all items except those that have the specified term assigned in the tags taxonomy.'
+            example: consequatur
+            nullable: false
+        -
+          in: query
+          name: featured
+          description: 'Limit result set to items that are sticky.'
+          example: consequatur
+          required: false
+          schema:
+            type: string
+            description: 'Limit result set to items that are sticky.'
+            example: consequatur
+            nullable: false
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/v1/posts/filters could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/v1/posts/filters could not be found.'
+      tags:
+        - Blog
+      security: []
+  '/api/v1/posts/{slug}':
+    get:
+      summary: 'Get post by slug'
+      operationId: getPostBySlug
+      description: ''
+      parameters:
+        -
+          in: query
+          name: slug
+          description: 'Find by slug of post.'
+          example: consequatur
+          required: false
+          schema:
+            type: string
+            description: 'Find by slug of post.'
+            example: consequatur
+            nullable: false
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/v1/posts/consequatur could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/v1/posts/consequatur could not be found.'
+      tags:
+        - Blog
+      security: []
+    parameters:
+      -
+        in: path
+        name: slug
+        description: 'The slug of the post.'
+        example: consequatur
+        required: true
+        schema:
+          type: string
+  /api/v1/categories/filters:
+    get:
+      summary: 'Filters categories'
+      operationId: filtersCategories
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/v1/categories/filters could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/v1/categories/filters could not be found.'
+      tags:
+        - Blog
+      security: []
+  '/api/v1/categories/{slug}':
+    get:
+      summary: 'Get category by slug'
+      operationId: getCategoryBySlug
+      description: ''
+      parameters:
+        -
+          in: query
+          name: slug
+          description: 'Find by slug of category.'
+          example: consequatur
+          required: false
+          schema:
+            type: string
+            description: 'Find by slug of category.'
+            example: consequatur
+            nullable: false
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/v1/categories/consequatur could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/v1/categories/consequatur could not be found.'
+      tags:
+        - Blog
+      security: []
+    parameters:
+      -
+        in: path
+        name: slug
+        description: 'The slug of the category.'
+        example: consequatur
+        required: true
+        schema:
+          type: string
+  /api/v1/ecommerce/brands:
+    get:
+      summary: 'Get list of brands'
+      operationId: getListOfBrands
+      description: ''
+      parameters:
+        -
+          in: query
+          name: brands
+          description: 'nullable array List of brand IDs if you need filter by brands, (e.g. [1,2,3]).'
+          example: null
+          required: false
+          schema:
+            type: string
+            description: 'nullable array List of brand IDs if you need filter by brands, (e.g. [1,2,3]).'
+            example: null
+            nullable: false
+        -
+          in: query
+          name: page
+          description: 'Page number. Default: 1.'
+          example: null
+          required: false
+          schema:
+            type: integer
+            description: 'Page number. Default: 1.'
+            example: null
+            nullable: false
+        -
+          in: query
+          name: per_page
+          description: 'Number of items per page. Default: 16.'
+          example: null
+          required: false
+          schema:
+            type: integer
+            description: 'Number of items per page. Default: 16.'
+            example: null
+            nullable: false
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/v1/ecommerce/brands could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/v1/ecommerce/brands could not be found.'
+      tags:
+        - Brands
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                brands:
+                  type: array
+                  description: 'The <code>id</code> of an existing record in the ec_product_brands table.'
+                  example: null
+                  items:
+                    type: string
+                    nullable: true
+                is_featured:
+                  type: boolean
+                  description: ''
+                  example: false
+                  nullable: true
+      security: []
+  '/api/v1/ecommerce/brands/{slug}':
+    get:
+      summary: 'Get brand details by slug'
+      operationId: getBrandDetailsBySlug
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/v1/ecommerce/brands/consequatur could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/v1/ecommerce/brands/consequatur could not be found.'
+      tags:
+        - Brands
+      security: []
+    parameters:
+      -
+        in: path
+        name: slug
+        description: 'The slug of the brand.'
+        example: consequatur
+        required: true
+        schema:
+          type: string
+  '/api/v1/ecommerce/brands/{id}/products':
+    get:
+      summary: 'Get products by brand'
+      operationId: getProductsByBrand
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/v1/ecommerce/brands/1/products could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/v1/ecommerce/brands/1/products could not be found.'
+      tags:
+        - Brands
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the brand.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/ecommerce/cart:
+    post:
+      summary: 'Add product to cart'
+      operationId: addProductToCart
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Cart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                product_id:
+                  type: integer
+                  description: 'ID of the product.'
+                  example: 1
+                  nullable: false
+                qty:
+                  type: integer
+                  description: 'Quantity of the product. Default: 1.'
+                  example: 1
+                  nullable: false
+              required:
+                - product_id
+                - qty
+      security: []
+  '/api/v1/ecommerce/cart/{id}':
+    put:
+      summary: 'Update quantity of a product in cart'
+      operationId: updateQuantityOfAProductInCart
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Cart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                product_id:
+                  type: integer
+                  description: 'ID of the product.'
+                  example: 1
+                  nullable: false
+                qty:
+                  type: integer
+                  description: 'Quantity of the product.'
+                  example: 1
+                  nullable: false
+              required:
+                - product_id
+                - qty
+      security: []
+    delete:
+      summary: 'Remove a cart item by its ID.'
+      operationId: removeACartItemByItsID
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Cart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                product_id:
+                  type: string
+                  description: 'The <code>id</code> of an existing record in the ec_products table.'
+                  example: consequatur
+                  nullable: false
+              required:
+                - product_id
+      security: []
+    get:
+      summary: 'Get a cart item by id.'
+      operationId: getACartItemById
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/v1/ecommerce/cart/consequatur could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/v1/ecommerce/cart/consequatur could not be found.'
+      tags:
+        - Cart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                customer_id:
+                  type: integer
+                  description: 'is ID of the customer.'
+                  example: 1
+                  nullable: false
+                id:
+                  type: string
+                  description: 'ID of the cart item.'
+                  example: e70c6c88dae8344b03e39bb147eba66a
+                  nullable: false
+              required:
+                - id
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the cart.'
+        example: consequatur
+        required: true
+        schema:
+          type: string
+  /api/v1/ecommerce/cart/refresh:
+    post:
+      summary: 'Refresh cart items'
+      operationId: refreshCartItems
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Cart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                products:
+                  type: array
+                  description: 'List of products.'
+                  example:
+                    -
+                      product_id: 1
+                      quantity: 1
+                  items:
+                    type: string
+              required:
+                - products
+      security: []
+  /api/v1/ecommerce/checkout/taxes/calculate:
+    post:
+      summary: 'Calculate tax for products in cart'
+      operationId: calculateTaxForProductsInCart
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  items:
+                    -
+                      product_id: 1
+                      price: 100
+                      price_formatted: $100.00
+                      quantity: 2
+                      tax_rate: 10
+                      tax_amount: 20
+                      tax_amount_formatted: $20.00
+                      subtotal: 200
+                      subtotal_formatted: $200.00
+                      total: 220
+                      total_formatted: $220.00
+                  totals:
+                    sub_total: 200
+                    sub_total_formatted: $200.00
+                    tax_amount: 20
+                    tax_amount_formatted: $20.00
+                    total: 220
+                    total_formatted: $220.00
+                properties:
+                  items:
+                    type: array
+                    example:
+                      -
+                        product_id: 1
+                        price: 100
+                        price_formatted: $100.00
+                        quantity: 2
+                        tax_rate: 10
+                        tax_amount: 20
+                        tax_amount_formatted: $20.00
+                        subtotal: 200
+                        subtotal_formatted: $200.00
+                        total: 220
+                        total_formatted: $220.00
+                    items:
+                      type: object
+                      properties:
+                        product_id:
+                          type: integer
+                          example: 1
+                        price:
+                          type: integer
+                          example: 100
+                        price_formatted:
+                          type: string
+                          example: $100.00
+                        quantity:
+                          type: integer
+                          example: 2
+                        tax_rate:
+                          type: integer
+                          example: 10
+                        tax_amount:
+                          type: integer
+                          example: 20
+                        tax_amount_formatted:
+                          type: string
+                          example: $20.00
+                        subtotal:
+                          type: integer
+                          example: 200
+                        subtotal_formatted:
+                          type: string
+                          example: $200.00
+                        total:
+                          type: integer
+                          example: 220
+                        total_formatted:
+                          type: string
+                          example: $220.00
+                  totals:
+                    type: object
+                    properties:
+                      sub_total:
+                        type: integer
+                        example: 200
+                      sub_total_formatted:
+                        type: string
+                        example: $200.00
+                      tax_amount:
+                        type: integer
+                        example: 20
+                      tax_amount_formatted:
+                        type: string
+                        example: $20.00
+                      total:
+                        type: integer
+                        example: 220
+                      total_formatted:
+                        type: string
+                        example: $220.00
+      tags:
+        - Cart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                products:
+                  type: array
+                  description: 'List of products.'
+                  example:
+                    -
+                      id: 1
+                      quantity: 2
+                  items:
+                    type: string
+                country:
+                  type: string
+                  description: 'Country code.'
+                  example: US
+                  nullable: true
+                state:
+                  type: string
+                  description: 'State code.'
+                  example: CA
+                  nullable: true
+                city:
+                  type: string
+                  description: 'City name.'
+                  example: 'Los Angeles'
+                  nullable: true
+                zip_code:
+                  type: string
+                  description: 'ZIP code.'
+                  example: '90001'
+                  nullable: true
+              required:
+                - products
+      security: []
+  '/api/v1/ecommerce/checkout/cart/{id}':
+    get:
+      summary: ''
+      operationId: getApiV1EcommerceCheckoutCartId
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/v1/ecommerce/checkout/cart/consequatur could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/v1/ecommerce/checkout/cart/consequatur could not be found.'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the cart.'
+        example: consequatur
+        required: true
+        schema:
+          type: string
+  /api/v1/ecommerce/orders:
+    get:
+      summary: 'Get list of orders by customer'
+      operationId: getListOfOrdersByCustomer
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/v1/ecommerce/orders could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/v1/ecommerce/orders could not be found.'
+      tags:
+        - Orders
+  '/api/v1/ecommerce/orders/{id}':
+    get:
+      summary: 'Get order detail'
+      operationId: getOrderDetail
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/v1/ecommerce/orders/consequatur could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/v1/ecommerce/orders/consequatur could not be found.'
+      tags:
+        - Orders
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the order.'
+        example: consequatur
+        required: true
+        schema:
+          type: string
+  /api/v1/ecommerce/product-categories:
+    get:
+      summary: 'Get list of product categories'
+      operationId: getListOfProductCategories
+      description: ''
+      parameters:
+        -
+          in: query
+          name: categories
+          description: 'nullable array List of category IDs if you need filter by categories, (e.g. [1,2,3]).'
+          example: null
+          required: false
+          schema:
+            type: string
+            description: 'nullable array List of category IDs if you need filter by categories, (e.g. [1,2,3]).'
+            example: null
+            nullable: false
+        -
+          in: query
+          name: page
+          description: 'Page number. Default: 1.'
+          example: null
+          required: false
+          schema:
+            type: integer
+            description: 'Page number. Default: 1.'
+            example: null
+            nullable: false
+        -
+          in: query
+          name: per_page
+          description: 'Number of items per page. Default: 16.'
+          example: null
+          required: false
+          schema:
+            type: integer
+            description: 'Number of items per page. Default: 16.'
+            example: null
+            nullable: false
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/v1/ecommerce/product-categories could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/v1/ecommerce/product-categories could not be found.'
+      tags:
+        - 'Product Categories'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                categories:
+                  type: array
+                  description: 'The <code>id</code> of an existing record in the ec_product_categories table.'
+                  example: null
+                  items:
+                    type: string
+                    nullable: true
+                is_featured:
+                  type: boolean
+                  description: ''
+                  example: true
+                  nullable: true
+      security: []
+  '/api/v1/ecommerce/product-categories/{slug}':
+    get:
+      summary: 'Get product category details by slug'
+      operationId: getProductCategoryDetailsBySlug
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/v1/ecommerce/product-categories/consequatur could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/v1/ecommerce/product-categories/consequatur could not be found.'
+      tags:
+        - 'Product Categories'
+      security: []
+    parameters:
+      -
+        in: path
+        name: slug
+        description: 'The slug of the product category.'
+        example: consequatur
+        required: true
+        schema:
+          type: string
+  '/api/v1/ecommerce/product-categories/{id}/products':
+    get:
+      summary: 'Get products by category'
+      operationId: getProductsByCategory
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/v1/ecommerce/product-categories/1/products could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/v1/ecommerce/product-categories/1/products could not be found.'
+      tags:
+        - 'Product Categories'
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the product category.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/ecommerce/products:
+    get:
+      summary: 'Get list of products'
+      operationId: getListOfProducts
+      description: ''
+      parameters:
+        -
+          in: query
+          name: include
+          description: "Comma-separated list of relations to include (e.g. 'categories,tags')."
+          example: null
+          required: false
+          schema:
+            type: string
+            description: "Comma-separated list of relations to include (e.g. 'categories,tags')."
+            example: null
+            nullable: false
+        -
+          in: query
+          name: is_featured
+          description: 'Filter by featured status (0 or 1).'
+          example: null
+          required: false
+          schema:
+            type: integer
+            description: 'Filter by featured status (0 or 1).'
+            example: null
+            nullable: false
+        -
+          in: query
+          name: category
+          description: 'Filter by category slug.'
+          example: null
+          required: false
+          schema:
+            type: string
+            description: 'Filter by category slug.'
+            example: null
+            nullable: false
+        -
+          in: query
+          name: tag
+          description: 'Filter by tag slug.'
+          example: null
+          required: false
+          schema:
+            type: string
+            description: 'Filter by tag slug.'
+            example: null
+            nullable: false
+        -
+          in: query
+          name: brand
+          description: 'Filter by brand slug.'
+          example: null
+          required: false
+          schema:
+            type: string
+            description: 'Filter by brand slug.'
+            example: null
+            nullable: false
+        -
+          in: query
+          name: categories
+          description: 'Filter by category IDs.'
+          example: null
+          required: false
+          schema:
+            type: array
+            description: 'Filter by category IDs.'
+            example: null
+            items:
+              type: string
+        -
+          in: query
+          name: brands
+          description: 'Filter by brand IDs.'
+          example: null
+          required: false
+          schema:
+            type: array
+            description: 'Filter by brand IDs.'
+            example: null
+            items:
+              type: string
+        -
+          in: query
+          name: collections
+          description: 'Filter by collection IDs.'
+          example: null
+          required: false
+          schema:
+            type: array
+            description: 'Filter by collection IDs.'
+            example: null
+            items:
+              type: string
+        -
+          in: query
+          name: search
+          description: 'Search term.'
+          example: null
+          required: false
+          schema:
+            type: string
+            description: 'Search term.'
+            example: null
+            nullable: false
+        -
+          in: query
+          name: order_by
+          description: 'Sort field.'
+          example: null
+          required: false
+          schema:
+            type: string
+            description: 'Sort field.'
+            example: null
+            nullable: false
+        -
+          in: query
+          name: order
+          description: 'Sort direction (asc or desc).'
+          example: null
+          required: false
+          schema:
+            type: string
+            description: 'Sort direction (asc or desc).'
+            example: null
+            nullable: false
+        -
+          in: query
+          name: per_page
+          description: 'Number of items per page.'
+          example: null
+          required: false
+          schema:
+            type: integer
+            description: 'Number of items per page.'
+            example: null
+            nullable: false
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/v1/ecommerce/products could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/v1/ecommerce/products could not be found.'
+      tags:
+        - Products
+      security: []
+  '/api/v1/ecommerce/products/{slug}':
+    get:
+      summary: 'Get product details by slug'
+      operationId: getProductDetailsBySlug
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/v1/ecommerce/products/consequatur could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/v1/ecommerce/products/consequatur could not be found.'
+      tags:
+        - Products
+      security: []
+    parameters:
+      -
+        in: path
+        name: slug
+        description: 'The slug of the product.'
+        example: consequatur
+        required: true
+        schema:
+          type: string
+  '/api/v1/ecommerce/products/{slug}/related':
+    get:
+      summary: 'Get related products'
+      operationId: getRelatedProducts
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/v1/ecommerce/products/consequatur/related could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/v1/ecommerce/products/consequatur/related could not be found.'
+      tags:
+        - Products
+      security: []
+    parameters:
+      -
+        in: path
+        name: slug
+        description: 'The slug of the product.'
+        example: consequatur
+        required: true
+        schema:
+          type: string
+  '/api/v1/ecommerce/products/{slug}/reviews':
+    get:
+      summary: "Get product's reviews"
+      operationId: getProductsReviews
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/v1/ecommerce/products/consequatur/reviews could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/v1/ecommerce/products/consequatur/reviews could not be found.'
+      tags:
+        - Products
+      security: []
+    parameters:
+      -
+        in: path
+        name: slug
+        description: 'The slug of the product.'
+        example: consequatur
+        required: true
+        schema:
+          type: string
+  /api/v1/me:
+    get:
+      summary: 'Get the user profile information.'
+      operationId: getTheUserProfileInformation
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/v1/me could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/v1/me could not be found.'
+      tags:
+        - Profile
+    put:
+      summary: 'Update profile'
+      operationId: updateProfile
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Profile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: 'This field is required when <code>name</code> is not present. Must not be greater than 120 characters. Must be at least 2 characters.'
+                  example: vmqeopfuudtdsufvyvddqamniihfqcoynlazghdtqtqxbajwbpilpmufinllwloauydlsmsjur
+                  nullable: true
+                last_name:
+                  type: string
+                  description: 'This field is required when <code>name</code> is not present. Must not be greater than 120 characters. Must be at least 2 characters.'
+                  example: yvojcybzvrbyickznkygloigmkwxphlvazjrcnfbaqywuxhgjjmzuxjubqouzswiwxtrkimfca
+                  nullable: true
+                name:
+                  type: string
+                  description: Name.
+                  example: consequatur
+                  nullable: true
+                phone:
+                  type: string
+                  description: Phone.
+                  example: consequatur
+                  nullable: true
+                dob:
+                  type: date
+                  description: 'nullable Date of birth (format: Y-m-d).'
+                  example: consequatur
+                  nullable: true
+                gender:
+                  type: string
+                  description: 'Gender (male, female, other).'
+                  example: consequatur
+                  nullable: true
+                description:
+                  type: string
+                  description: Description
+                  example: 'Dolores dolorum amet iste laborum eius est dolor.'
+                  nullable: true
+                email:
+                  type: string
+                  description: Email.
+                  example: qkunze@example.com
+                  nullable: true
+              required:
+                - name
+                - phone
+  /api/v1/update/avatar:
+    post:
+      summary: 'Update Avatar'
+      operationId: updateAvatar
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Profile
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                avatar:
+                  type: string
+                  format: binary
+                  description: 'Avatar file.'
+                  nullable: false
+              required:
+                - avatar
+  /api/v1/update/password:
+    put:
+      summary: 'Update password'
+      operationId: updatePassword
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Profile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+                  description: 'The new password of user.'
+                  example: 'O[2UZ5ij-e/dl4m{o,'
+                  nullable: false
+                old_password:
+                  type: string
+                  description: 'The current password of user.'
+                  example: consequatur
+                  nullable: false
+              required:
+                - password
+                - old_password
